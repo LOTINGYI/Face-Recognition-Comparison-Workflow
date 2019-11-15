@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Step 1: Feed image and get the face token</h2>
+    <p>api key: <input type="text" id="apiKey" size="50"></p>
+    <p>api secret: <input type="text" id="apiSecret" size="50"></p>
+    <p>img url: <input type="text" id="imgUrl" size="50"></p>
+    <p><strong>File size : no larger than 2MB</strong></p>
+    <p><strong>Minimal size of face : the bounding box of a detected face is a square. The minimal side length of a
+            square should be no less than 150 pixels.</strong></p>
+    <input type="submit" onclick="detectImage()" value="submit">
+
+
+    <div id="facetokeninformation">
+
+    </div>
+    <hr>
+    <h2>Step 2: Create face set</h2>
+    <p>outer id: <input type="text" name="facesetid" id="facesetid"></p>
+    <h3>You can also add face when creating the face set</h3>
+    <p><strong> The number of face_token must not be larger than 5.</strong></p>
+    <p>how to add: <strong>Example: facetoken1,facetoken2,facetoken3,facetoken4,facetoken5</strong> </p>
+    <textarea name="facetokens" id="facetokens" cols="50" rows="10"></textarea>
+    <input type="submit" onclick="createFaceset()" value="submit">
+    <div id="facesettokeninformation">
+
+    </div>
+    <hr>
+
+    <h2>Step 3: Add face token</h2>
+    <h3>Choose which face set you want to add</h3>
+    <p>outer id: <input type="text" name="addfacesetid" id="addfacesetid"></p>
+    <p>how to add: <strong>Example: facetoken1,facetoken2,facetoken3,facetoken4,facetoken5</strong> </p>
+    <textarea name="addfacetokens" id="addfacetokens" cols="50" rows="10"></textarea>
+    <input type="submit" onclick="addFace()" value="submit">
+
+    <hr>
+
+    <h2>Step 4: Start searching</h2>
+    <h3>Choose which face set you want to test</h3>
+    <p>Outer id <input type="text" name="outer id" id="outerId" /></p>
+    <h3>Add one face token to test </h3>
+    <p><strong>[ If you don't have test face token, you can go to step 1 to create ]</strong> </p>
+    <p>Tested face token <input type="text" name="token" id="token" size="50" /></p>
+    <button onclick="search()">search</button>
+    <div id="result">
+
+
+    </div>
+
+
+    <script src="./script.js"></script>
+</body>
+
+</html>

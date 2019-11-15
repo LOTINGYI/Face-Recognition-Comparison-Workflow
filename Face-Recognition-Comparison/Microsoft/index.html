@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Enter your subscription key to let you use Azure Face API</h1>
+        <input type="text" name="Enter key" id="inputSubscriptionKey" size="50">
+        <button onclick="submit()">submit</button>
+        <div id="submitSuccess"></div>
+        <h1>Create Person Group</h1>
+        <div>
+            <h2>Create group id</h2>
+            <input type="text" name="Enter group id" id="inputGroupId" />
+            <br>
+            <h2>Create group name</h2>
+            <input type="text" name="Enter group name" id="inputGroupName" />
+            <br>
+            <br>
+            <button onclick="createGroup()">Create Group</button>
+            <h3 class="personGroupId"></h3>
+        </div>
+       <hr>
+        <h1>Create Person Group Name</h1>
+        <div>
+            <h2>Enter person group id</h2>
+            <input type="text" name="Enter person group id" id="inputPersonGroupId" />
+            <br>
+            <h2>Create person name</h2>
+            <input type="text" name="Enter person name" id="inputPersonName" />
+            <br>
+            <br>
+            <button onclick="createPersonGroup()">Create Person</button>
+
+            <div>
+                <ul class="personIds">
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <h1>Add Face to specific personId</h1>
+        <div>
+            <h2>Enter person group id</h2>
+            <input type="text" name="Enter person group id" id="PersonGroupId" />
+            <h2>Enter person id</h2>
+            <input type="text" name="Enter person id" id="PersonId" />
+            <h2>Enter img url</h2>
+            <p><strong>You can add many images as you want. There is no limitation [Compared to Face ++]</strong></p>
+            <input type="text" name="Enter url" id="url">
+            <br>
+            <br>
+            <button onclick="addFace()">Add Face</button>
+
+            <div>
+                <ul class="persistedFaceIds">
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <h1>Start Training !! </h1>
+        <div>
+            <h2>Enter person group id</h2>
+            <input type="text" name="Enter person group id" id="TrainPersonGroupId">
+            <button onclick="train()">Train</button>
+        </div>
+
+    </div>
+
+
+    <div>
+        <h1>Detect Faces to get Face Id:</h1>
+        Enter the URL to an image that includes a face or faces, then click
+        the <strong>Analyze face</strong> button.<br><br>
+        Image to analyze: <input type="text" name="inputImage" id="inputImage"
+            value="https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg" />
+        <p><strong>You can get the face id from this image</strong></p>
+        <button onclick="processImage()">Analyze face</button><br><br>
+        <div id="wrapper" style="width:1020px; display:table;">
+            <div id="jsonOutput" style="width:600px; display:table-cell;">
+                Response:<br><br>
+                <textarea id="responseTextArea" class="UIInput" style="width:580px; height:400px;"></textarea>
+            </div>
+
+
+
+            <div id="imageDiv" style="width:420px; display:table-cell;">
+                Source image:<br><br>
+                <img id="sourceImage" width="400" />
+            </div>
+        </div>
+        <div id="information">
+
+        </div>
+
+
+    </div>
+
+
+
+    <div>
+        <h1>Identify your Face</h1>
+        <h2>Enter person group id you want to test</h2>
+        <input type="text" name="Enter person group id" id="identifyPersonGroupId" />
+        <br>
+        <br>
+        <p><strong>Add the test face id</strong></p>
+        <p>How to add:</p>
+        <p><strong>faceid1</strong></p>
+        <p><strong>faceid2</strong></p>
+        <p><strong>faceid3</strong></p>
+        <textarea id="bodyFaceId" cols="60" rows="10"></textarea>
+        <button onclick="identify()">identify</button>
+    </div>
+    <div id="confidence">
+        
+    </div>
+</body>
+<script  src="./script.js"></script>
+
+</html>
